@@ -22,7 +22,7 @@ class RightMoveSpec extends BaseFeatureSpec {
     }
 
     scenario("Register account") {
-      Given("I want to register an account")
+      Given(/*"I want to register an account"*/ "\"This is a different text\"")
       RightMoveLandingPage.navigateToRightMoveLandingPage()
       RightMoveLandingPage.clickOnSignInButton
 
