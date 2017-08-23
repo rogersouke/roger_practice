@@ -9,6 +9,7 @@ class MyStoreSpec extends BaseFeatureSpec{
 
   feature("To test new customer's subscription and purchasing journey") {
 
+
     scenario("New user creates an account") {
 
       Given("User wants to create a new customer account")
