@@ -1,6 +1,6 @@
 package uk.gov.hmrc.rightmove.tests
 
-import uk.gov.hmrc.rightmove.pages.{GooglePage, RegistrationPage, RightMoveLandingPage, SignInPage}
+import uk.gov.hmrc.rightmove.pages.{GooglePage, RightMoveRegistrationPage, RightMoveLandingPage, SignInPage}
 
 
 class RightMoveSpec extends BaseFeatureSpec {
@@ -22,18 +22,18 @@ class RightMoveSpec extends BaseFeatureSpec {
     }
 
     scenario("Register account") {
-      Given(/*"I want to register an account"*/ "\"This is a different text\"")
+      Given("I want to register an account")
       RightMoveLandingPage.navigateToRightMoveLandingPage()
       RightMoveLandingPage.clickOnSignInButton
 
       When("User wants to create account")
-      RegistrationPage.clickOnCreateAccountLink
+      RightMoveRegistrationPage.clickOnCreateAccountLink
 
       And("we enter our details")
-      RegistrationPage.createAccountDetails("Mr", "Freddy", "Brody")
-      RegistrationPage.enterEmailAndPassword("jessie@test.com", "victoria123", "victoria123")
-      RegistrationPage.clickOnCheckbox
-      RegistrationPage.clickOnCreateAccount
+      RightMoveRegistrationPage.createAccountDetails("Mr", "Freddy", "Brody")
+      RightMoveRegistrationPage.enterEmailAndPassword("umar@test.com", "victoria123", "victoria123")
+      RightMoveRegistrationPage.clickOnCheckbox
+      RightMoveRegistrationPage.clickOnCreateAccount
 
 
     }
