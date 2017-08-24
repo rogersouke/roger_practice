@@ -62,4 +62,11 @@ trait NavigationSugar extends WebBrowser
     }
     fail(s"Marker evaluation resolves false for current page")
   }
+
+
+  def waitFor(webElement: WebElement)(implicit webDriver: WebDriver) = eventually {
+    webElement.isDisplayed shouldBe true
+  }
+
+
 }

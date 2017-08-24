@@ -2,10 +2,7 @@ package uk.gov.hmrc.rightmove.pages
 
 import uk.gov.hmrc.rightmove.pages.generic.BasePage
 
-/**
-  * Created by roger on 19/08/17.
-  */
-object RegistrationPage extends BasePage {
+object RightMoveRegistrationPage extends BasePage {
 
 
 

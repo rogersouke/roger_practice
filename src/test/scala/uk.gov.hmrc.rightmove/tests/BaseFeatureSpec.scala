@@ -108,4 +108,8 @@ trait BaseFeatureSpec
   def isSystemError: Boolean = find(cssSelector("h1")).get.text == "System error"
 
   def hasValidationErrors: Boolean = findAll(cssSelector("div[class=field] > div[class=error]")).exists { error: Element => error.isDisplayed }
+
+
+
+
 }
