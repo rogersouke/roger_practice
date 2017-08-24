@@ -32,7 +32,7 @@ class RightMoveSpec extends BaseFeatureSpec {
       And("we enter our details")
       RightMoveRegistrationPage.createAccountDetails("Mr", "Freddy", "Brody")
       RightMoveRegistrationPage.enterEmailAndPassword("umar@test.com", "victoria123", "victoria123")
-      RightMoveRegistrationPage.clickOnCheckbox
+      RightMoveRegistrationPage.clearCheckBox
       RightMoveRegistrationPage.clickOnCreateAccount
 
 

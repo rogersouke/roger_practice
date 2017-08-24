@@ -37,7 +37,7 @@ object RightMoveRegistrationPage extends BasePage {
 
   def enterPassword2(password2: String): Unit = pwdField(id("registration-password2")).value = password2
 
-  def clickOnCheckbox = checkbox(id("consentForContact")).clear()
+  def clearCheckBox = checkbox(id("consentForContact")).clear()
 
   def clickOnCreateAccount = click on id("create-account-button")
 
