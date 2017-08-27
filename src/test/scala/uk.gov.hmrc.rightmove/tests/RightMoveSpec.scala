@@ -28,12 +28,12 @@ class RightMoveSpec extends BaseFeatureSpec {
 
       When("User wants to create account")
       RightMoveRegistrationPage.clickOnCreateAccountLink
+      RightMoveRegistrationPage.assertPageTitle
 
       And("we enter our details")
       RightMoveRegistrationPage.createAccountDetails("Mr", "Freddy", "Brody")
       RightMoveRegistrationPage.enterEmailAndPassword("umar@test.com", "victoria123", "victoria123")
       RightMoveRegistrationPage.clearCheckBox
-      RightMoveRegistrationPage.clickOnCreateAccount
 
 
     }

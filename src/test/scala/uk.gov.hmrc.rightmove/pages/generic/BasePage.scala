@@ -78,4 +78,6 @@ trait BasePage extends org.scalatest.selenium.Page
     find(cssSelector(heading)).exists(_.text == text)
   }
 
+
+
 }

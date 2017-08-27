@@ -41,6 +41,9 @@ object RightMoveRegistrationPage extends BasePage {
 
   def clickOnCreateAccount = click on id("create-account-button")
 
+  val assertPageTitle = find(id("createAccountLink"))
+  val expectedPageTitleText: String = "Create an account"
+
 
 
 }
