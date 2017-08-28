@@ -1,9 +1,6 @@
 package uk.gov.hmrc.rightmove.tests
 
-import uk.gov.hmrc.rightmove.pages.MyStoreLandingPage
-import uk.gov.hmrc.rightmove.pages.MystoreCreateAccountPage
-import uk.gov.hmrc.rightmove.pages.MyStoreSignInPage
-import uk.gov.hmrc.rightmove.pages.MyStoreRegistrationPage
+import uk.gov.hmrc.rightmove.pages.{MyStoreLandingPage, MyStoreRegistrationPage, MyStoreSignInPage, MystoreCreateAccountPage, MyStoreAccountPage}
 
 /**
   * Created by roger on 23/08/17.
@@ -39,7 +36,7 @@ class MyStoreSpec extends BaseFeatureSpec{
 
     }
 
-    scenario(" A registered User purchases a shirt") {
+    scenario("A registered User purchases a shirt") {
 
       Given("User wants to create a new customer account")
       MyStoreLandingPage.navigateToMyStoreLandingPage()
@@ -47,9 +44,12 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       When("User enter their email and create a new account")
       MyStoreSignInPage.enterMyStoreEmailAndPasswd("pogba@test.com", "victoria123")
-      MystoreCreateAccountPage.clickOnCreateAccount
+      MyStoreSignInPage.clickOnSignIn
 
       And("Selects shirt")
+      MyStoreAccountPage.assertPageHeader()
+      MyStoreAccountPage.clickOnCategory()
+
       And("updates their basket")
       Then("user issss")
     }
