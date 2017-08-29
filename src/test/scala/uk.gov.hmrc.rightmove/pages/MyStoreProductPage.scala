@@ -1,6 +1,5 @@
 package uk.gov.hmrc.rightmove.pages
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.rightmove.pages.generic.BasePage
 
 /**
@@ -8,7 +7,11 @@ import uk.gov.hmrc.rightmove.pages.generic.BasePage
   */
 object MyStoreProductPage extends BasePage {
 
-  def clickOnProceed(): Unit = driver.findElement(By.partialLinkText("Proceed to checkout")).click()
+  def clickOnProceed(): Unit = click on cssSelector("#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a")
+
+  def newSwitchPage(): Unit = driver.switchTo().frame("#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6")
+
+  def switchToPopUpPage(): Unit = driver.getWindowHandlesgir
 
 
 }

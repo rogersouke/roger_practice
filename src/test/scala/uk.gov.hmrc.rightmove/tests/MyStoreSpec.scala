@@ -54,6 +54,7 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("updates their basket")
       MyStoreCategoryPage.chooseCategory()
       MyStoreCategoryPage.addTshirtToCart()
+      MyStoreProductPage.switchToPopUpPage()
       MyStoreProductPage.clickOnProceed()
 
       Then("user issss")
