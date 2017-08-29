@@ -1,6 +1,7 @@
 package uk.gov.hmrc.rightmove.tests
 
-import uk.gov.hmrc.rightmove.pages.{MyStoreLandingPage, MyStoreRegistrationPage, MyStoreSignInPage, MystoreCreateAccountPage, MyStoreAccountPage}
+import uk.gov.hmrc.rightmove.pages._
+
 
 /**
   * Created by roger on 23/08/17.
@@ -51,6 +52,10 @@ class MyStoreSpec extends BaseFeatureSpec{
       MyStoreAccountPage.clickOnCategory()
 
       And("updates their basket")
+      MyStoreCategoryPage.chooseCategory()
+      MyStoreCategoryPage.addTshirtToCart()
+      MyStoreProductPage.clickOnProceed()
+
       Then("user issss")
     }
   }
