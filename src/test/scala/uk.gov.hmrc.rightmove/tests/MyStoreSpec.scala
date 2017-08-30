@@ -54,8 +54,14 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("updates their basket")
       MyStoreCategoryPage.chooseCategory()
       MyStoreCategoryPage.addTshirtToCart()
-      MyStoreProductPage.switchToPopUpPage()
-      MyStoreProductPage.clickOnProceed()
+
+      MyStoreProductPage.switchToPop()
+
+//      driver.switchTo().frame("layer_cart")
+//      driver.switchTo().activeElement()
+//      driver.findElement(By.cssSelector(".layer_cart_cart.col-xs-12.col-md-6")).click()
+//      MyStoreProductPage.switchToPopUpPage()
+//      MyStoreProductPage.clickOnProceed()
 
       Then("")
     }
