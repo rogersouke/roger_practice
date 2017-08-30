@@ -57,7 +57,7 @@ class MyStoreSpec extends BaseFeatureSpec{
       MyStoreProductPage.switchToPopUpPage()
       MyStoreProductPage.clickOnProceed()
 
-      Then("user issss")
+      Then("")
     }
   }
 
