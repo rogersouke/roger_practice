@@ -28,12 +28,14 @@ class MyStoreSpec extends BaseFeatureSpec{
       MyStoreRegistrationPage.enterAddressDetails("5 barry rd", "chicago", "13", "BN4 2ER", "21")
       MyStoreRegistrationPage.enterMobilePhoneNumberAndAliasAddress("01111122390", "24 Kobe rd")
 
-      And("clicks on register account")
-      MyStoreRegistrationPage.clickOnRegisterButton
+      Then("Then we assert we are on Create an Account Page")
+      MyStoreRegistrationPage.assertRegistrationPageTitle()
+
+//      And("clicks on register account")
+//      MyStoreRegistrationPage.clickOnRegisterButton
 
 
 
-//      Then("User will be registered")
 
     }
 
@@ -54,16 +56,22 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("updates their basket")
       MyStoreCategoryPage.chooseCategory()
       MyStoreCategoryPage.addTshirtToCart()
+      Thread.sleep(3000L)
 
       MyStoreProductPage.switchToPop()
 
-//      driver.switchTo().frame("layer_cart")
-//      driver.switchTo().activeElement()
-//      driver.findElement(By.cssSelector(".layer_cart_cart.col-xs-12.col-md-6")).click()
-//      MyStoreProductPage.switchToPopUpPage()
-//      MyStoreProductPage.clickOnProceed()
+      And("We proceed to checkout")
+      MyStoreOrderSummaryPage.clickOnProceed
+      MyStoreAddressConfirmationPage.clickOnProceedButton
 
-      Then("")
+      And("We confirm shipping details")
+      MystoreShippingConfirmationPage.radioButtonGroup()
+      MystoreShippingConfirmationPage.checkBox()
+      MystoreShippingConfirmationPage.clickOnProceedToCheckOut
+
+      Then("We assert Page title is as expected")
+      MyStorePaymentPage.assertPageTitle()
+
     }
   }
 
