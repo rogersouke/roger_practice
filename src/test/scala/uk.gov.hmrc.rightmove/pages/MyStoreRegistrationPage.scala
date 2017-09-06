@@ -64,6 +64,14 @@ object MyStoreRegistrationPage extends BasePage {
 
 
 
+  def assertRegistrationPageTitle(): Unit = {
+    val registrationPageTitle = find(tagName("h1")).get.text
+    val expectedRegistrationPageTitleText: String = "CREATE AN ACCOUNT"
+    registrationPageTitle shouldBe expectedRegistrationPageTitleText
+  }
+
+
+
 
 
 }
