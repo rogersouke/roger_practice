@@ -39,6 +39,8 @@ object RightMoveRegistrationPage extends BasePage {
 
   def clearCheckBox = checkbox(id("consentForContact")).clear()
 
+  def clickOnCheckBox(): Unit = checkbox("consentForContact").select()
+
   def clickOnCreateAccount = click on id("create-account-button")
 
   def assertPageTitle(): Unit = {
