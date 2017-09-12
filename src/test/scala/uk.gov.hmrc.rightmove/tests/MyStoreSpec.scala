@@ -62,6 +62,9 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       And("We proceed to checkout")
       MyStoreOrderSummaryPage.clickOnProceed
+
+      And("We enter comment and proceed")
+      MyStoreAddressConfirmationPage.enterComment("Please I need 50% discount on my next purchase")
       MyStoreAddressConfirmationPage.clickOnProceedButton
 
       And("We confirm shipping details")
@@ -71,6 +74,7 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       Then("We assert Page title is as expected")
       MyStorePaymentPage.assertPageTitle()
+      MyStorePaymentPage.clickOnBankWire
 
     }
   }

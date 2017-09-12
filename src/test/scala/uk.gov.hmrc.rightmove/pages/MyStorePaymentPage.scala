@@ -7,6 +7,8 @@ import uk.gov.hmrc.rightmove.pages.generic.BasePage
   */
 object MyStorePaymentPage extends BasePage{
 
+  def clickOnBankWire = click on cssSelector(".bankwire")
+
   def assertPageTitle(): Unit = {
     val pageTitle = find(tagName("h1")).get.text
     val expectedPageTitleText: String = "PLEASE CHOOSE YOUR PAYMENT METHOD"
