@@ -32,8 +32,8 @@ class MyStoreSpec extends BaseFeatureSpec{
       Then("Then we assert we are on Create an Account Page")
       MyStoreRegistrationPage.assertRegistrationPageTitle()
 
-//      And("clicks on register account")
-//      MyStoreRegistrationPage.clickOnRegisterButton
+      And("clicks on register account")
+      MyStoreRegistrationPage.clickOnRegisterButton
 
 
 
