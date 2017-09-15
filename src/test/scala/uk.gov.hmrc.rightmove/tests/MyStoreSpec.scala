@@ -35,10 +35,23 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("clicks on register account")
       MyStoreRegistrationPage.clickOnRegisterButton
 
-
-
-
     }
+
+    scenario("Asserting colours"){
+
+      Given("Given User is already registered and wants to login")
+      MyStoreLandingPage.navigateToMyStoreLandingPage()
+      MyStoreLandingPage.clickOnSignInLink
+
+      When("User enters valid account details")
+      MyStoreSignInPage.enterMyStoreEmailAndPasswd("pogba@test.com", "victoria123")
+      MyStoreSignInPage.clickOnSignIn
+
+      And("And user selects catrgory")
+      MyStoreAccountPage.clickOnCategory()
+      MyStoreCategoryPage.clickOnQuickView
+    }
+
 
     scenario("A registered User purchases a shirt") {
 
