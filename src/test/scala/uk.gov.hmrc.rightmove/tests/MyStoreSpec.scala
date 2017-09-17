@@ -32,13 +32,26 @@ class MyStoreSpec extends BaseFeatureSpec{
       Then("Then we assert we are on Create an Account Page")
       MyStoreRegistrationPage.assertRegistrationPageTitle()
 
-//      And("clicks on register account")
-//      MyStoreRegistrationPage.clickOnRegisterButton
-
-
-
+      And("clicks on register account")
+      MyStoreRegistrationPage.clickOnRegisterButton
 
     }
+
+    scenario("Asserting colours"){
+
+      Given("Given User is already registered and wants to login")
+      MyStoreLandingPage.navigateToMyStoreLandingPage()
+      MyStoreLandingPage.clickOnSignInLink
+
+      When("User enters valid account details")
+      MyStoreSignInPage.enterMyStoreEmailAndPasswd("pogba@test.com", "victoria123")
+      MyStoreSignInPage.clickOnSignIn
+
+      And("And user selects catrgory")
+      MyStoreAccountPage.clickOnCategory()
+      MyStoreCategoryPage.clickOnQuickView
+    }
+
 
     scenario("A registered User purchases a shirt") {
 
@@ -62,6 +75,9 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       And("We proceed to checkout")
       MyStoreOrderSummaryPage.clickOnProceed
+
+      And("We enter comment and proceed")
+      MyStoreAddressConfirmationPage.enterComment("Please I need 50% discount on my next purchase")
       MyStoreAddressConfirmationPage.clickOnProceedButton
 
       And("We confirm shipping details")
@@ -71,6 +87,7 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       Then("We assert Page title is as expected")
       MyStorePaymentPage.assertPageTitle()
+      MyStorePaymentPage.clickOnBankWire
 
     }
   }

@@ -12,5 +12,7 @@ object MyStoreCategoryPage extends BasePage {
 
   def addTshirtToCart(): Unit = driver.findElement(By.xpath(".//*[@id='add_to_cart']/button")).click()
 
+  def clickOnQuickView = click on  cssSelector(".product_img_link > img:nth-child(1)")
+
 
 }
