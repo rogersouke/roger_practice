@@ -15,4 +15,15 @@ object MyStoreCategoryPage extends BasePage {
   def clickOnQuickView = click on  cssSelector(".product_img_link > img:nth-child(1)")
 
 
+  def clickOnOrangeColour = find(id("color_13")).get.underlying.getCssValue("background-color")
+
+//  def assertColorIsBlue = find(id("color_14")).get.underlying.getCssValue("background-color"): Unit {
+
+    def assertColorIsBlue(): Unit = {
+      val colorIsBlue = find(id("color_14")).get.underlying.getCssValue("background-color")
+      colorIsBlue shouldBe  "rgba(93, 156, 236, 1)"
+
+
+  }
+
 }

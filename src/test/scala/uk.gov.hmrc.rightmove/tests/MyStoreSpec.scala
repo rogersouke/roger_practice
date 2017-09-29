@@ -33,7 +33,7 @@ class MyStoreSpec extends BaseFeatureSpec{
       MyStoreRegistrationPage.assertRegistrationPageTitle()
 
       And("clicks on register account")
-      MyStoreRegistrationPage.clickOnRegisterButton
+//      MyStoreRegistrationPage.clickOnRegisterButton
 
     }
 
@@ -50,6 +50,25 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("And user selects catrgory")
       MyStoreAccountPage.clickOnCategory()
       MyStoreCategoryPage.clickOnQuickView
+      MyStoreCategoryPage.assertColorIsBlue
+    }
+
+
+    scenario("Pogba contacts customer service and attaches a query file/screenshot.") {
+      Given("User is already registered")
+      MyStoreLandingPage.navigateToMyStoreLandingPage()
+      MyStoreLandingPage.clickOnSignInLink
+
+      When("User enters valid account details")
+      MyStoreSignInPage.enterMyStoreEmailAndPasswd("pogba@test.com", "victoria123")
+      MyStoreSignInPage.clickOnSignIn
+
+      And("User selects contact us link")
+      MyStoreContactUsPage.clickOnContactUsLink
+      MyStoreContactUsPage.selectSubjectHeading("Customer service")
+      MyStoreContactUsPage.enterComment("Not very happy with my last order please can you rectify and resend the right order now?")
+      MyStoreContactUsPage.uploadQueryFile("queryFile")
+      MyStoreContactUsPage.clickOnSend
     }
 
 
