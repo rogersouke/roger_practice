@@ -50,6 +50,7 @@ class MyStoreSpec extends BaseFeatureSpec{
       And("And user selects catrgory")
       MyStoreAccountPage.clickOnCategory()
       MyStoreCategoryPage.clickOnQuickView
+      MyStoreCategoryPage.assertColorIsBlue
     }
 
 
