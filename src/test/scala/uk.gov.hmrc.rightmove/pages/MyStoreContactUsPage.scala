@@ -10,7 +10,7 @@ object MyStoreContactUsPage extends BasePage{
 
   def clickOnContactUsLink = click on id("contact-link")
 
-  def selectSubjectHeading(subjectHeading: String): Unit = singleSel(name("id_contact")).value = "2"
+  def selectSubjectHeading(subjectHeading: String): Unit = singleSel(name("id_contact")).value = subjectHeading
   def enterEmail(email: String): Unit = textField(id("email")).value = email
 //  def selectOrderReference(orderReference: String): Unit = singleSel(name("search_query")).value = ""
 

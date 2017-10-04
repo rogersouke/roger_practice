@@ -4,6 +4,7 @@ import uk.gov.hmrc.rightmove.pages.{MyStoreLandingPage, MyStoreRegistrationPage,
 import uk.gov.hmrc.rightmove.pages._
 
 
+
 /**
   * Created by roger on 23/08/17.
   */
@@ -65,7 +66,7 @@ class MyStoreSpec extends BaseFeatureSpec{
 
       And("User selects contact us link")
       MyStoreContactUsPage.clickOnContactUsLink
-      MyStoreContactUsPage.selectSubjectHeading("Customer service")
+      MyStoreContactUsPage.selectSubjectHeading("2")
       MyStoreContactUsPage.enterComment("Not very happy with my last order please can you rectify and resend the right order now?")
       MyStoreContactUsPage.uploadQueryFile("queryFile")
       MyStoreContactUsPage.clickOnSend
@@ -108,6 +109,42 @@ class MyStoreSpec extends BaseFeatureSpec{
       MyStorePaymentPage.assertPageTitle()
       MyStorePaymentPage.clickOnBankWire
 
+    }
+
+    scenario("Asserting the order summary page") {
+
+      Given("User wants to create a new customer account")
+      MyStoreLandingPage.navigateToMyStoreLandingPage()
+      MyStoreLandingPage.clickOnSignInLink
+
+      When("User enter their email and create a new account")
+      MyStoreSignInPage.enterMyStoreEmailAndPasswd("pogba@test.com", "victoria123")
+      MyStoreSignInPage.clickOnSignIn
+
+      And("Selects shirt")
+      MyStoreAccountPage.assertPageHeader()
+      MyStoreAccountPage.clickOnCategory()
+
+      And("updates their basket")
+      MyStoreCategoryPage.chooseCategory()
+      MyStoreCategoryPage.addTshirtToCart()
+      Thread.sleep(3000L)
+      MyStoreProductPage.switchToPop()
+
+      And("We proceed to checkout")
+      MyStoreOrderSummaryPage.clickOnProceed
+
+      And("We enter comment and proceed")
+      MyStoreAddressConfirmationPage.enterComment("Please I need 50% discount on my next purchase")
+      MyStoreAddressConfirmationPage.clickOnProceedButton
+
+      And("We confirm shipping details")
+      MystoreShippingConfirmationPage.radioButtonGroup()
+      MystoreShippingConfirmationPage.checkBox()
+      MystoreShippingConfirmationPage.clickOnProceedToCheckOut
+
+      Then("We assert Page title is as expected")
+       MyStoreOrderConfirmationPage.bodyHeader.get shouldBe "PLEASE CHOOSE YOUR PAYMENT METHOD"
     }
   }
 

@@ -33,6 +33,7 @@ trait BasePage extends org.scalatest.selenium.Page
   def submit(): Unit = click on find(xpath(".//*[@type='submit' and contains(text(),'Submit')]")).get
 
   def continue(): Unit = click on find(xpath(".//*[@type='submit' and contains(text(),'Continue')]")).get
+  def bodyHeader = find(tagName("h1")).map(_.text)
 
   def agreeAndContinue(): Unit = click on find(xpath(".//*[@type='submit' and contains(text(),'Agree and continue')]")).get
 
